@@ -56,11 +56,12 @@ export default function Login() {
             </Text>
           </Stack>
 
-          <Stack spacing={4} as="form">
+          <Stack spacing={4} as="form" method="GET">
             <FormControl>
               <FormLabel fontSize="sm">Telefono</FormLabel>
               <Input
                 type="text"
+                name="auth"
                 placeholder="23690747"
                 size="lg"
                 autoComplete="phone"

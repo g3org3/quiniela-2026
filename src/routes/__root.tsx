@@ -1,10 +1,15 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { Flex, Text } from "@chakra-ui/react";
+import {
+  createRootRoute,
+  Link,
+  Outlet,
+  useSearch,
+} from "@tanstack/react-router";
+import { Button, Flex, Spacer, Text } from "@chakra-ui/react";
 import Login from "../domain/Login";
 
-const isAuthenticated = false;
 const RootLayout = () => {
-  if (!isAuthenticated) {
+  const { auth } = useSearch({ from: "/" });
+  if (!auth) {
     return <Login />;
   }
   return (
@@ -14,6 +19,10 @@ const RootLayout = () => {
           <Text fontWeight="bold" fontSize="18px">
             Quiniela
           </Text>
+          <Spacer />
+          <Link to="/">
+            <Button variant="ghost">Logout</Button>
+          </Link>
         </Flex>
         <Outlet />
       </Flex>
