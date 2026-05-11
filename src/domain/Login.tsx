@@ -10,13 +10,8 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-function Index() {
+export default function Login() {
   return (
     <Flex
       minH="calc(100dvh - 96px)"
