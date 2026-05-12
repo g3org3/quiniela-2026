@@ -14,4 +14,18 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
+  server: {
+    proxy: {
+      "/api/matches": {
+        target: "https://fixturedownload.com",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) =>
+          path.replace(
+            "/api/matches",
+            "/feed/json/fifa-world-cup-2026",
+          ),
+      },
+    },
+  },
 });
